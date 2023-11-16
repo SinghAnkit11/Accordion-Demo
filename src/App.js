@@ -1,24 +1,34 @@
-import logo from './logo.svg';
+import React from "react";
 import './App.css';
+import Products from "./components/Products";
+import productsList from "./components/ProductsList";
+import Form from "./components/Form";
+import MultiForm from "./components/MultipleForm";
+import TodoApp from "./components/Todos/Todo";
+import Counter from "./components/Counter";
+// import Accordion from "./components/Accordions/Accordion";
+import AccordionCopy from "./components/AccordionsCopy/AccordionCopy";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>      
+     { productsList.map((product)=> 
+     <Products 
+        key={product.pID} 
+        proImage={product.image} 
+        proName={product.pName} 
+        proDesc={product.desc} 
+        proPrice={product.price} 
+        proStock={product.isAvailable} 
+     /> 
+     )}
+     <Form />
+     <MultiForm />
+     <TodoApp />
+     <Counter />
+     {/* <Accordion /> */}
+     <AccordionCopy />
+    </>
   );
 }
 
